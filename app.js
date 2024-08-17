@@ -1,12 +1,20 @@
 const express = require("express");
 const app = express();
 
+app.set('view engine','ejs')
+
 app.get("/", (req, res) => {
-  res.send("<h1>Haha Worldrs</h1>");
+  const data={
+    name:'samir',
+    age:'21'
+  }
+  res.render("home.ejs",{
+    haha:data
+  });
 });
 
 app.get("/about", (req, res) => {
-  res.send("About page");
+  res.render("about.ejs");
 });
 
 app.listen(3000, () => {
